@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/design-medical.css">
   <link rel="stylesheet" href="./assets/partner-section.css">
+  <link rel="stylesheet" href="./assets/infographic/infographic.css">
   <style>
     :root {
       --bg: #F8FAFC;
@@ -796,6 +797,116 @@
               style="font-size: 0.8rem; font-weight: 700; color: var(--primary); margin-top: -0.5rem; margin-bottom: 0.75rem;">
               代表：室田 泰良（Murota Taira）</p>
             <p style="font-size: 0.9rem;">空気改善装置・環境制御・製造ノウハウを持つ実装企業。医療・産業現場への高度な空気清浄ソリューションを展開。</p>
+          </div>
+
+          <!-- INTEGRATED INFOGRAPHIC: 全体構造 1枚完結モデル -->
+          <div class="infographic-section">
+            <!-- LEFT AREA: CYCLE MODEL -->
+            <div class="info-left">
+              <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="border:none; padding:0; margin-bottom:0.5rem; justify-content:center;">
+                  <span style="color:var(--info-blue);">Air Data</span> Infrastructure Cycle
+                </h2>
+                <p style="font-size: 0.9rem; font-weight: 700; color: var(--info-slate);">循環型ビジネスモデル</p>
+              </div>
+
+              <div class="cycle-container">
+                <!-- SVG connections -->
+                <svg class="cycle-svg-overlay" viewBox="0 0 420 420">
+                  <circle cx="210" cy="210" r="160" fill="none" stroke="var(--info-blue)" stroke-width="1"
+                    stroke-dasharray="8 8" opacity="0.3" />
+                  <!-- Circular arrows would go here in full SVG, using CSS nodes for now -->
+                </svg>
+
+                <div class="cycle-center">
+                  <span style="font-size: 0.7rem; font-weight: 800; color: var(--info-blue);">SYSTEM CORE</span>
+                  <div style="font-size: 1rem; font-weight: 900; line-height: 1.2;">Air Data<br>Platform</div>
+                </div>
+
+                <div class="cycle-node node-1">Measure<br>（計測）</div>
+                <div class="cycle-node node-2">Improve<br>（改善）</div>
+                <div class="cycle-node node-3">Certify<br>（証明）</div>
+                <div class="cycle-node node-4">Analyze<br>（解析）</div>
+                <div class="cycle-node node-5">Store<br>（蓄積）</div>
+                <div class="cycle-node node-6">Optimize<br>（最適化）</div>
+              </div>
+
+              <div
+                style="margin-top: 2rem; display: flex; gap: 2rem; background: #fff; padding: 1rem 2rem; border-radius: 100px; border: 1px solid var(--info-border);">
+                <div
+                  style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; font-weight:800; color:var(--med-slate-900);">
+                  <span style="color:var(--info-blue);">●</span> Hardware Sales
+                </div>
+                <div
+                  style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; font-weight:800; color:var(--med-slate-900);">
+                  <span style="color:var(--info-green);">●</span> SaaS Subscription
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT AREA: BENTO TRACKER -->
+            <div class="info-right">
+              <!-- Progress -->
+              <div class="info-bento-card" style="grid-column: span 2;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <h3 style="font-size: 0.9rem; margin:0;">Project Execution <span class="assumed-tag">(Assumed)</span>
+                  </h3>
+                  <span style="font-size:0.7rem; color:var(--info-blue); font-weight:800;">STATUS: ON TRACK</span>
+                </div>
+                <div class="progress-group">
+                  <div class="progress-item">
+                    <div class="progress-label"><span>Platform Design</span><span>90%</span></div>
+                    <div class="bar-bg">
+                      <div class="bar-fill" style="width: 90%;"></div>
+                    </div>
+                  </div>
+                  <div class="progress-item">
+                    <div class="progress-label"><span>MVP Implementation</span><span>45%</span></div>
+                    <div class="bar-bg">
+                      <div class="bar-fill" style="width: 45%; background:var(--info-green);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Roadmap -->
+              <div class="info-bento-card">
+                <h3 style="font-size: 0.9rem; margin:0;">Roadmap 2026-30</h3>
+                <ul class="roadmap-mini">
+                  <li>US Dental Deep-dive</li>
+                  <li>ADA Network Alliance</li>
+                  <li>Global Node Expansion</li>
+                  <li style="font-weight:800; color:var(--info-blue);">Target: IPO (2028-30)</li>
+                </ul>
+              </div>
+
+              <!-- Funding -->
+              <div class="info-bento-card">
+                <h3 style="font-size: 0.9rem; margin:0;">Funding <span class="assumed-tag">(Assumed)</span></h3>
+                <div class="donut-box">
+                  <div class="donut-visual"></div>
+                  <div class="donut-legend">
+                    <div style="display:flex; align-items:center; gap:0.4rem;"><span
+                        style="color:var(--info-blue);">■</span> MUI: ¥2-5B</div>
+                    <div style="display:flex; align-items:center; gap:0.4rem;"><span
+                        style="color:var(--info-green);">■</span> WCA: ¥3-5B</div>
+                    <div style="font-weight:800; margin-top:0.2rem;">Total: Max ¥10B</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Market -->
+              <div class="info-bento-card" style="grid-column: span 2;">
+                <h3 style="font-size: 0.9rem; margin:0;">Focus Domains</h3>
+                <div class="market-mini-grid">
+                  <div class="market-mini-item">Dental Clinics</div>
+                  <div class="market-mini-item">3D Printing Labs</div>
+                  <div class="market-mini-item">Smart Sports</div>
+                </div>
+                <p style="font-size: 0.65rem; color: var(--info-slate); margin-top: 0.5rem; text-align: center;">
+                  (Initial Focus: Smart Medical Infrastructure)</p>
+              </div>
+            </div>
           </div>
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
             <span
