@@ -195,7 +195,8 @@
     }
 
     .logo-box {
-      width: 60px;
+      width: auto;
+      min-width: 140px;
       height: 60px;
       border-radius: 12px;
       background: #fff;
@@ -204,11 +205,12 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+      padding: 0 1rem;
       overflow: hidden;
     }
 
     .logo-box img {
-      max-width: 80%;
+      max-width: 100%;
       max-height: 80%;
       object-fit: contain;
     }
@@ -434,28 +436,28 @@
           Certify）</h2>
       </div>
 
-      <div class="bento col-4" style="background: #fff;">
+      <div class="bento col-4" style="background: #0F172A; color: #fff;">
         <div class="img-placeholder"
-          style="aspect-ratio: 16/9; min-height: 120px; margin-bottom: 1.5rem; margin-top: 0;">
-          <img src="./02_sources/infographics/measure.png" alt="Measure"
-            onerror="this.onerror=null; this.src='https://placehold.co/400x225?text=Measure';">
+          style="aspect-ratio: 16/9; min-height: 120px; margin-bottom: 1.5rem; margin-top: 0; border-color: rgba(255,255,255,0.2); background: rgba(0,0,0,0.5);">
+          <img src="./assets/img/measure_dashboard.png" alt="Measure Dashboard" style="border-radius: 12px; opacity: 1;"
+            onerror="this.onerror=null; this.src='https://placehold.co/400x225/0F172A/fff?text=Measure';">
         </div>
-        <h3>1. 測定（Measure）</h3>
-        <p><strong>MUI 高精度センシング</strong><br>空気の微小粒子やガスをリアルタイムで分析・データ化。</p>
-      </div>
-      <div class="bento col-4" style="background: #fff;">
-        <div class="img-placeholder"
-          style="aspect-ratio: 16/9; min-height: 120px; margin-bottom: 1.5rem; margin-top: 0;">
-          <img src="./02_sources/infographics/improve.png" alt="Improve"
-            onerror="this.onerror=null; this.src='https://placehold.co/400x225?text=Improve';">
-        </div>
-        <h3>2. 改善（Improve）</h3>
-        <p><strong>WCA 分解技術実装</strong><br>医療グレードの完全浄化とエッジ基盤でのIoT制御。</p>
+        <h3 style="color: #fff;">1. 測定（Measure）</h3>
+        <p style="color: #94A3B8;"><strong>MUI 高精度センシング</strong><br>空気の微小粒子やガスをリアルタイムで分析・データ化。</p>
       </div>
       <div class="bento col-4" style="background: #0F172A; color: #fff;">
         <div class="img-placeholder"
           style="aspect-ratio: 16/9; min-height: 120px; margin-bottom: 1.5rem; margin-top: 0; border-color: rgba(255,255,255,0.2); background: rgba(0,0,0,0.5);">
-          <img src="./assets/img/certify_dashboard.png" alt="Certify"
+          <img src="./assets/img/improve_dashboard.png" alt="Improve Dashboard" style="border-radius: 12px; opacity: 1;"
+            onerror="this.onerror=null; this.src='https://placehold.co/400x225/0F172A/fff?text=Improve';">
+        </div>
+        <h3 style="color: #fff;">2. 改善（Improve）</h3>
+        <p style="color: #94A3B8;"><strong>WCA 分解技術実装</strong><br>医療グレードの完全浄化とエッジ基盤でのIoT制御。</p>
+      </div>
+      <div class="bento col-4" style="background: #0F172A; color: #fff;">
+        <div class="img-placeholder"
+          style="aspect-ratio: 16/9; min-height: 120px; margin-bottom: 1.5rem; margin-top: 0; border-color: rgba(255,255,255,0.2); background: rgba(0,0,0,0.5);">
+          <img src="./assets/img/certify_dashboard.png" alt="Certify Dashboard" style="border-radius: 12px; opacity: 1;"
             onerror="this.onerror=null; this.src='https://placehold.co/400x225/0F172A/fff?text=Certify';">
         </div>
         <h3 style="color: #fff;">3. 証明（Certify）</h3>
@@ -482,21 +484,23 @@
         style="background: #fff; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; align-items: stretch;">
         <div style="display: flex; flex-direction: column; justify-content: space-between;">
           <div class="img-placeholder"
-            style="aspect-ratio: 16/9; margin-bottom: 1.5rem; border-radius: 12px; overflow:hidden;">
-            <img src="./assets/img/airfuture pro本体画像　背景なし　中央設定　エアフューチャー斜め.png" alt="WCA Main Product"
-              onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=WCA+Product';">
+            style="aspect-ratio: 16/9; margin-bottom: 1.5rem; border-radius: 12px; overflow:hidden; background: #F8FAFC; border: none; padding: 1rem;">
+            <img src="./assets/img/airfuture pro本体画像　背景なし　中央設定　エアフューチャー斜め.png" alt="AirFuture Main Product"
+              style="object-fit: contain;"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=AirFuture+Product';">
           </div>
           <div>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; text-wrap: balance;">医療グレード浄化システム（WCA Series）</h3>
-            <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Ion
-              Cluster（イオンクラスター）技術を搭載した医療機関向けの最高峰空間浄化機器。<br>※確定価格: 海外 $3,000 / 国内 約30万円（原価率約30%）、WCA MINI 20万円。</p>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; text-wrap: balance;">医療グレード浄化システム（AirFuture Series）
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">AirFuture
+              （エアフューチャー）技術を搭載した医療機関向けの最高峰空間浄化機器。<br>※確定価格: 海外 $3,000 / 国内 約30万円（原価率約30%）、MINI 20万円。</p>
           </div>
         </div>
 
         <div style="display: flex; flex-direction: column; justify-content: space-between;">
           <div class="img-placeholder"
-            style="aspect-ratio: 16/9; margin-bottom: 1.5rem; border-radius: 12px; overflow:hidden;">
-            <img src="./assets/img/BROCHURES-ELECTRONIC-NOSE.png" alt="MUI Sensor Product"
+            style="aspect-ratio: 16/9; margin-bottom: 1.5rem; border-radius: 12px; overflow:hidden; background: #F8FAFC; border: none; padding: 1rem;">
+            <img src="./assets/img/BROCHURES-ELECTRONIC-NOSE.png" alt="MUI Sensor Product" style="object-fit: contain;"
               onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=MUI+Sensor';">
           </div>
           <div>
@@ -957,6 +961,10 @@
       ・<strong style="color:var(--text)">LTV (Life Time Value: 顧客生涯価値)</strong>：顧客が契約を開始してから終了するまでの期間にもたらす利益の総額。<br>
       ・<strong style="color:var(--text)">CAC (Customer Acquisition Cost:
         顧客獲得単価)</strong>：1社（1人）の顧客を獲得するためにかかった営業・マーケティング費用の合計。<br>
+      ・<strong style="color:var(--text)">DCF法 (Discounted Cash
+        Flow)</strong>：将来見込まれるフリーキャッシュフローを現在価値に割り引いて企業価値を算出する評価手法。<br>
+      ・<strong style="color:var(--text)">EBIT (Earnings Before Interest and
+        Taxes)</strong>：企業の支払利息および税引前利益。本業による収益力を示す重要な指標。<br>
       ・<strong style="color:var(--text)">UL認証 / PSE規格</strong>：米国および日本における電気製品の安全規格。グローバル流通における必須要件。
     </div>
 
