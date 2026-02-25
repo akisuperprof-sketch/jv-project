@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUI×WCA Joint Venture Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/design-medical.css">
+  <style>
+    :root {
+      --bg: #070B14;
+      --card: rgba(18, 25, 43, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #3B82F6;
+      --primary-glow: rgba(59, 130, 246, 0.5);
+      --success: #10B981;
+      --success-glow: rgba(16, 185, 129, 0.4);
+      --text: #F3F4F6;
+      --muted: #9CA3AF;
+      --radius: 16px;
+      --shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08), transparent 40%);
+      background-attachment: fixed;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #E5E7EB;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    @media (max-width: 768px) {
+
+      .grid-2,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+
+    /* Header & Nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(7, 11, 20, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        text-align: center;
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--success));
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Buttons */
+    button {
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    button.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    button.primary:hover {
+      background: #2563EB;
+    }
+
+    button.success {
+      background: var(--success);
+      border-color: var(--success);
+      color: #000;
+      box-shadow: 0 0 15px var(--success-glow);
+    }
+
+    button.warning {
+      background: #F59E0B;
+      border-color: #F59E0B;
+      color: #000;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      overflow: hidden;
+      position: relative;
+      page-break-inside: avoid;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* KPI Blocks */
+    .kpi-block {
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      position: relative;
+      cursor: help;
+    }
+
+    .kpi-title {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .kpi-value {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .kpi-value span {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .kpi-block:hover {
+      border-color: var(--primary);
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    /* Interactive Elements (Hover Info) */
+    [data-hover-info] {
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.4);
+      cursor: help;
+      position: relative;
+    }
+
+    [data-hover-info]:hover::after {
+      content: attr(data-hover-info);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111;
+      border: 1px solid var(--primary);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: normal;
+      white-space: pre-wrap;
+      width: max-content;
+      max-width: 300px;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      color: #fff;
+      text-align: left;
+    }
+
+    /* Visuals Containers */
+    .visual-container {
+      width: 100%;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .data-table th {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .data-table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .data-table .status-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .data-table .status-provisional {
+      background: rgba(245, 158, 11, 0.2);
+      color: #F59E0B;
+      border: 1px solid rgba(245, 158, 11, 0.5);
+    }
+
+    .data-table .status-confirmed {
+      background: rgba(16, 185, 129, 0.2);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.5);
+    }
+
+    .data-table .status-tbd {
+      background: rgba(239, 68, 68, 0.2);
+      color: #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.5);
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #0B1221;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 95%;
+      max-width: 1000px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 1);
+      transform: translateY(20px);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .gallery-item::after {
+      content: attr(data-slide);
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+    }
+
+    .gallery-item:hover img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* Forms & Sliders (Modal specifics) */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+    }
+
+    .input-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .input-slider {
+      width: 100%;
+      accent-color: var(--primary);
+    }
+
+    /* Detail Sections / Modals Layout */
+    .detail-section {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-section h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Speaker Notes Layout */
+    .speaker-note {
+      margin-top: 1rem;
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+    }
+
+    .speaker-note summary {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      user-select: none;
+    }
+
+    .speaker-note summary:hover {
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .speaker-note summary::before {
+      content: '🎙️ トーク台本 (開閉): ';
+      margin-right: 0.5rem;
+    }
+
+    .speaker-note .note-content {
+      padding: 1rem;
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+      font-size: 0.95rem;
+      color: #E5E7EB;
+      line-height: 1.7;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .script-type {
+      display: inline-block;
+      padding: 2px 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 8px;
+      color: #fff;
+    }
+
+    /* Lightbox for Gallery */
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #lightbox.active {
+      display: flex;
+    }
+
+    #lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+      }
+
+      h2,
+      h3,
+      h4,
+      .kpi-value {
+        color: #000;
+      }
+
+      .kpi-title,
+      p,
+      .speaker-note .note-content {
+        color: #444;
+      }
+
+      header,
+      .nav-actions,
+      [data-hover-info]::after,
+      .speaker-note summary,
+      .modal-close {
+        display: none !important;
+      }
+
+      .speaker-note {
+        border-color: #ccc;
+      }
+
+      .speaker-note .note-content {
+        display: block !important;
+        background: #f9f9f9;
+        padding: 1rem;
+        border: none;
+        font-size: 0.9rem;
+      }
+
+      details {
+        display: block;
+      }
+
+      details[open] .note-content,
+      details:not([open]) .note-content {
+        display: block !important;
+      }
+
+      .card,
+      .detail-section {
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        break-inside: avoid;
+        margin-bottom: 2rem;
+      }
+
+      .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+
+      .grid {
+        gap: 1rem;
+      }
+
+      svg text {
+        fill: #000 !important;
+      }
+
+      .page-break {
+        page-break-after: always;
+      }
+
+      [data-hover-info] {
+        border-bottom: none;
+      }
+
+      .modal-overlay {
+        display: none;
+      }
+    }
+
+    /* Guard Styles */
+    .status-alert-placeholder {
+      color: #EF4444 !important;
+      text-decoration: underline wavy #EF4444;
+    }
+
+    .sync-warning-banner {
+      background: #F59E0B;
+      color: #000;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px;
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .version-indicator {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="medical-theme" onload="runSafetyGuards()">
+  <div id="sync-warning" class="sync-warning-banner">⚠️ 注意: CSV台帳との同期が古い可能性があります。最新の数値を台帳で確認してください。</div>
+  <div class="version-indicator">OS v1.1.0 | Snapshot: 20260225</div>
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo"></div>
+      MUI × WCA / Future Air Infra
+    </div>
+    <div class="nav-actions">
+      <button onclick="toggleTheme()" id="theme-toggle">🌙 Dark Mode</button>
+      <button onclick="window.print()">🖨️ PDF・印刷</button>
+      <button onclick="openModal('modal-scripts-master')">🎙️ 全体台本</button>
+      <button class="warning" onclick="openModal('modal-gallery')">🖼️ 参考スライド(画像)</button>
+      <button class="primary" onclick="openModal('modal-truth')">✅ 最新版前提 (更新:2026/02)</button>
+      <div
+        style="background:rgba(239, 68, 68, 0.2); border:1px solid #EF4444; color:#EF4444; padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold; display:flex; align-items:center;">
+        注意：PPTは旧データ</div>
+    </div>
+  </header>
+
+  <div class="container grid">
+    <!-- Top Section -->
+    <div class="card glass hero-expand" style="padding: 3rem; position: relative; border: none; overflow: visible;">
+      <div style="display: flex; gap: 3rem; align-items: center;">
+        <div style="flex: 1.2;">
+          <div
+            style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(14,165,233,0.1); border:1px solid var(--med-primary); color:var(--med-primary); font-size:0.75rem; font-weight:700; border-radius:30px; margin-bottom:1.5rem;">
+            MEDICAL GRADE AIR INTELLIGENCE</div>
+          <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">空気を「情報」に変え、<br>医療と社会をアップデートする</h1>
+          <p style="font-size: 1.1rem; color: var(--med-muted); margin-bottom: 2rem;">
+            MUI（感知）× WCA（改善）のJV。空間データの資産化による、世界初の「空気インフラ」SaaSモデル。
+          </p>
+          <div style="display: flex; gap: 1rem;">
+            <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color:var(--med-muted);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg> Medical Compliance
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color:var(--med-muted);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
+                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
+                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" />
+              </svg> Secure Data Trail
+            </div>
+          </div>
+        </div>
+        <div style="flex: 0.8; position: relative;" class="floating-card">
+          <div
+            style="width: 100%; height: 350px; background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%); border-radius: 40px; border: 1px solid var(--med-border); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <!-- Placeholder for Hero Image -->
+            <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1000"
+              alt="Medical Device"
+              style="width: 90%; height: 90%; object-fit: contain; mix-blend-mode: multiply; opacity: 0.8;">
+          </div>
+        </div>
+      </div>
+      <details class="speaker-note" style="margin-top: 2rem;">
+        <summary>Concept Pitch</summary>
+        <div class="note-content">
+          「我々は空気清浄機メーカーではなく、その空間の安全性をデジタルで証明し、継続課金する『空気の公的インフラ』を構築しています」
+        </div>
+      </details>
+    </div>
+
+    <!-- Hero KPI Grid -->
+    <div class="grid grid-4" style="opacity: 0.9;">
+      <div class="kpi-block">
+        <div class="kpi-title">Funding Target <span class="status-alert-placeholder"
+            style="font-size:0.6rem; vertical-align:middle;">(Placeholder)</span></div>
+        <div class="kpi-value"><span data-hover-info="数字は「最新版前提」モーダル参照">10.0<span>億円 (暫定)</span></span></div>
+        <p style="font-size:0.75rem; margin-top:5px">JV比率等: 要確認</p>
+      </div>
+      <div class="kpi-block">
+        <div class="kpi-title">CAC (CPA Estimate) <span
+            style="font-size:0.6rem; vertical-align:middle; color:#F59E0B;">(Assumed)</span></div>
+        <div class="kpi-value"><span data-hover-info="仮置き値です。詳細は最新版前提モーダル参照">18<span>万 / 9万</span></span></div>
+        <p style="font-size:0.75rem; margin-top:5px">直販 / 代理店 (仮)</p>
+      </div>
+      <div class="kpi-block" style="border-color: rgba(16, 185, 129, 0.4);">
+        <div class="kpi-title">LTV (Lifetime Value) <span
+            style="font-size:0.6rem; vertical-align:middle; color:#10B981;">(Assumed)</span></div>
+        <div class="kpi-value" style="color: var(--success)"><span data-hover-info="仮置き値です。詳細は最新版前提モーダル参照">570<span>万円
+              (仮)</span></span></div>
+        <p style="font-size:0.75rem; margin-top:5px">解約・継続率: 暫定</p>
+      </div>
+      <div class="kpi-block">
+        <div class="kpi-title">Valuation (DCF) <span class="status-alert-placeholder"
+            style="font-size:0.6rem; vertical-align:middle;">(Placeholder)</span></div>
+        <div class="kpi-value"><span data-hover-info="仮置き値です。パラメーター調整は別途行います。">185<span>億円 (仮)</span></span></div>
+        <p style="font-size:0.75rem; margin-top:5px">レンジ: 未確定</p>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Row 2: Business Model & Data Flow -->
+    <div class="grid grid-2">
+      <!-- 4-Layer Revenue Model & Three-Stage Rocket -->
+      <div class="card">
+        <h2>三段ロケット＆収益モデル構造</h2>
+        <p style="margin-bottom: 1rem;">初期のハードルを下げ、ストックとデータによる高利益体質へ転換する構造。</p>
+        <div class="visual-container">
+          <!-- SVG 三段ロケット -->
+          <svg width="100%" height="100%" viewBox="0 0 400 250">
+            <path d="M 60 160 Q 150 160 150 100" fill="none" stroke="#fff" stroke-dasharray="4,4" opacity="0.3" />
+            <path d="M 210 100 Q 300 100 300 40" fill="none" stroke="#fff" stroke-dasharray="4,4" opacity="0.3" />
+
+            <circle cx="60" cy="160" r="45" fill="rgba(59,130,246,0.2)" stroke="#3B82F6" stroke-width="2" />
+            <text x="60" y="150" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">① 機器売上</text>
+            <text x="60" y="165" fill="#E5E7EB" font-size="10" text-anchor="middle">WCA / MUI 導入</text>
+
+            <circle cx="200" cy="100" r="50" fill="rgba(16,185,129,0.2)" stroke="#10B981" stroke-width="2" />
+            <text x="200" y="90" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">② SaaS継続</text>
+            <text x="200" y="105" fill="#E5E7EB" font-size="10" text-anchor="middle">監視 + アプリ</text>
+            <text x="200" y="120" fill="#10B981" font-size="9" text-anchor="middle">高利益率体質へ</text>
+
+            <circle cx="330" cy="50" r="55" fill="rgba(217,70,239,0.2)" stroke="#D946EF" stroke-width="2" />
+            <text x="330" y="40" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">③ データ・ESG</text>
+            <text x="330" y="55" fill="#E5E7EB" font-size="10" text-anchor="middle">ライセンス更新</text>
+            <text x="330" y="70" fill="#D946EF" font-size="9" text-anchor="middle">空間安全性証明</text>
+          </svg>
+        </div>
+        <details class="speaker-note">
+          <summary>技術・収益構造 (Speaker Notes)</summary>
+          <div class="note-content">
+            <strong>「測れる×変えられるは世界唯一です」</strong><br>
+            競合は空気を測るだけ、あるいは清浄するだけです。我々は高精度センシングと強力な有害物質分解をセットで提供します。<br><br>
+            <strong>「物販で顧客とデータを取り、SaaSとライセンスで利益率が上がる三段ロケットです。」</strong><br>
+            初期のキャッシュポイントから継続課金へ。最終的にLTV/CACのマルチプルを最大化します。（具体的な数値は最新版前提モーダルを参照）
+          </div>
+        </details>
+      </div>
+
+      <!-- Data Asset Flow & Market -->
+      <div class="card">
+        <h2>展開チャネルとデータ資産化</h2>
+        <p style="margin-bottom: 0.5rem;">特定市場でシェアを獲得し、空間のESGスコアリングへ。</p>
+
+        <div class="visual-container" style="height: 140px; margin-top:2rem;">
+          <svg width="100%" height="100%" viewBox="0 0 400 130">
+            <rect x="20" y="40" width="100" height="50" rx="8" fill="rgba(59,130,246,0.2)" stroke="#3B82F6"
+              stroke-width="2" />
+            <text x="70" y="70" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">導入・感知</text>
+
+            <rect x="150" y="40" width="100" height="50" rx="8" fill="rgba(245,158,11,0.2)" stroke="#F59E0B"
+              stroke-width="2" />
+            <text x="200" y="70" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">世界空気DB構築</text>
+
+            <rect x="280" y="40" width="100" height="50" rx="8" fill="rgba(217,70,239,0.2)" stroke="#D946EF"
+              stroke-width="2" />
+            <text x="330" y="70" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">空間ESG証明</text>
+
+            <path d="M 120 65 L 140 65" fill="none" stroke="#fff" stroke-width="2" marker-end="url(#arrow)" />
+            <path d="M 250 65 L 270 65" fill="none" stroke="#fff" stroke-width="2" marker-end="url(#arrow)" />
+
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"
+                orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#fff" />
+              </marker>
+            </defs>
+          </svg>
+        </div>
+
+        <details class="speaker-note">
+          <summary>市場・データ (Speaker Notes)</summary>
+          <div class="note-content">
+            <strong>「特定ドメインで同時に伸びます」</strong><br>
+            「粉塵や有害物質から命を守る」という文脈で、特定業界にフォーカスして侵入します。（狙う市場規模・戦略については要確認事項）<br><br>
+            <strong>「最終的にGAFA型になります」</strong><br>
+            世界中の空間データをDB化。この建物・部屋の空気がいかに安全かを証明する世界的ライセンス元になります。
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Row 3: Timelines and Use of Funds -->
+    <div class="grid grid-2">
+      <!-- Roadmap -->
+      <div class="card">
+        <h2>JV → IPO ロードマップ (想定 Phase)</h2>
+        <div class="visual-container" style="height: 280px; align-items:flex-start; padding-top:1rem;">
+          <svg width="100%" height="100%" viewBox="0 0 400 250">
+            <line x1="40" y1="20" x2="40" y2="230" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+
+            <circle cx="40" cy="30" r="6" fill="#10B981" />
+            <text x="60" y="34" fill="#10B981" font-size="11" font-weight="bold">Phase 1: JV設立・R&D</text>
+            <text x="60" y="50" fill="#E5E7EB" font-size="10">コア技術の統合、製品ローンチ前テスト</text>
+
+            <circle cx="40" cy="80" r="6" fill="#3B82F6" />
+            <text x="60" y="84" fill="#3B82F6" font-size="11" font-weight="bold">Phase 2: 特定市場への展開</text>
+            <text x="60" y="100" fill="#E5E7EB" font-size="10">初期モデルの供給・SaaS課金本格化</text>
+
+            <circle cx="40" cy="130" r="6" fill="#F59E0B" />
+            <text x="60" y="134" fill="#F59E0B" font-size="11" font-weight="bold">Phase 3: グローバル展開＋DB構築</text>
+            <text x="60" y="150" fill="#E5E7EB" font-size="10">別国・別用途への拡張・空気データ集約</text>
+
+            <circle cx="40" cy="180" r="6" fill="#D946EF" />
+            <text x="60" y="184" fill="#D946EF" font-size="11" font-weight="bold">Phase 4: IPO準備</text>
+            <text x="60" y="200" fill="#E5E7EB" font-size="10">ライセンス収益化。ガバナンス・財務の最終調整</text>
+
+            <circle cx="40" cy="230" r="8" fill="#EF4444" />
+            <circle cx="40" cy="230" r="14" fill="none" stroke="#EF4444" stroke-width="2" class="pulse" />
+            <text x="60" y="234" fill="#EF4444" font-size="13" font-weight="bold">Phase 5: 目指すべき上場</text>
+          </svg>
+        </div>
+        <style>
+          @keyframes pulse {
+            0% {
+              transform: scale(0.9);
+              opacity: 1;
+            }
+
+            100% {
+              transform: scale(1.5);
+              opacity: 0;
+            }
+          }
+
+          .pulse {
+            animation: pulse 2s infinite;
+            transform-origin: 40px 230px;
+          }
+        </style>
+
+        <details class="speaker-note">
+          <summary>IPO・成長戦略 (Speaker Notes)</summary>
+          <div class="note-content">
+            <strong>「将来的に国際市場を狙います」</strong><br>
+            日本のグロース市場ではなく、環境・ESGテクノロジーの評価が高く資金流入の多いアジアのハブ等をターゲットと想定しています。
+          </div>
+        </details>
+      </div>
+
+      <!-- Profitability & LTV vs CAC -->
+      <div class="card">
+        <h2>成長エコノミクス (イメージ)</h2>
+        <div class="visual-container" style="height: 150px; margin-bottom: 1rem;">
+          <svg width="100%" height="100%" viewBox="0 0 400 150">
+            <line x1="30" y1="130" x2="380" y2="130" stroke="rgba(255,255,255,0.2)" />
+
+            <rect x="60" y="120" width="30" height="10" fill="#3B82F6" />
+            <text x="75" y="145" fill="#9CA3AF" font-size="10" text-anchor="middle">Year N</text>
+
+            <rect x="180" y="80" width="30" height="50" fill="#3B82F6" />
+            <text x="195" y="145" fill="#9CA3AF" font-size="10" text-anchor="middle">Year N+2</text>
+
+            <rect x="300" y="20" width="30" height="110" fill="#3B82F6" />
+            <text x="315" y="145" fill="#9CA3AF" font-size="10" text-anchor="middle">Year N+4</text>
+
+            <!-- Margin Curve -->
+            <path d="M 75 110 L 195 65 L 315 30" fill="none" stroke="#10B981" stroke-width="2" />
+            <circle cx="75" cy="110" r="3" fill="#10B981" />
+            <circle cx="195" cy="65" r="3" fill="#10B981" />
+            <circle cx="315" cy="30" r="3" fill="#10B981" />
+
+            <text x="360" y="20" fill="#10B981" font-size="10">利益率改善</text>
+            <path d="M 330 30 L 350 20" fill="none" stroke="#10B981" stroke-dasharray="2,2" />
+          </svg>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+          <h3 style="font-size: 0.9rem; margin-bottom:0.5rem; display:flex; justify-content:space-between;">
+            <span>ユニットエコノミクス (概念)</span>
+          </h3>
+          <p style="font-size: 0.8rem; color: var(--muted); line-height: 1.5;">
+            ハード販売のみの低粗利モデルから、SaaS型のRecurring Revenueが積み上がることで、売上成長率以上に利益率が改善する構造を持ちます。解約率を低く抑えることが至上命題となります。
+          </p>
+        </div>
+
+        <details class="speaker-note" style="margin-top: 0.5rem;">
+          <summary>財務・エコノミクス (Speaker Notes)</summary>
+          <div class="note-content">
+            「ハードの原価率を圧縮しつつ、高粗利のSaaSが積み上がる健全な構造を目指します。」<br>
+            <span class="script-type">アクション</span> → 右上モーダルの「最新版前提」を開き、現状で協議中の仮数値を共有する。
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODALS SECTION                             -->
+  <!-- ========================================== -->
+
+  <!-- Truth Data Modal (Single Source of Truth) -->
+  <div class="modal-overlay" id="modal-truth" onclick="closeModalOnBgClick(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-truth')">&times;</button>
+      <h2 style="margin-bottom: 0;">✅ 最新版前提 (Single Source of Truth)</h2>
+      <p style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+        <span style="color:#F59E0B; font-weight:bold;">※重要※ 本文やKPIはこのモーダルの内容と一致しています。過去のPPT資料の数値やテキストは利用しません。</span><br>
+        この一覧が、現在の投資等協議における「唯一の最新の数値ソース」です。
+      </p>
+
+      <!-- 1. Products & Economics -->
+      <div class="detail-section">
+        <h4>プロダクト・エコノミクス (仮置き)</h4>
+        <table class="data-table">
+          <tr>
+            <th>項目</th>
+            <th>数値/単位</th>
+            <th>ステータス</th>
+            <th>メモ/根拠</th>
+            <th>最終更新</th>
+          </tr>
+          <tr>
+            <td>WCA 販売価格(海外)</td>
+            <td>3,000 USD / 台</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>日本国内(30万円)とは別建て</td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>WCA 原価率</td>
+            <td>30 %</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td></td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>MUI 販売価格</td>
+            <td>150万〜300万 円</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td></td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>MUI 原価率</td>
+            <td>60 %</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td></td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>サブスク (SaaS)</td>
+            <td>月額 3〜5万 円</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>法人向け監視＋定期レポート。粗利率80%想定</td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>LTV 試算</td>
+            <td>約 570万 円</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>[WCA2台($6k)+MUIレンタル(3万×120ヵ月)+アプリ(1万×120ヵ月)]</td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>解約率等の想定</td>
+            <td>1年:5% / 3年累計:10%</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>上記LTVの計算に織り込む数値</td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>CAC 試算(直販)</td>
+            <td>18万 円</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>営業・マーケコスト÷受注数</td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>CAC 試算(代理店)</td>
+            <td>9万 円</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>代理店マージン割戻し等を加味</td>
+            <td>2026/02</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 2. JV conditions -->
+      <div class="detail-section">
+        <h4>事業計画・ガバナンス・各種要確認事項</h4>
+        <table class="data-table">
+          <tr>
+            <th>項目</th>
+            <th>数値/内容</th>
+            <th>ステータス</th>
+            <th>メモ/根拠</th>
+            <th>最終更新</th>
+          </tr>
+          <tr>
+            <td>資金調達総額</td>
+            <td>10億 円</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td>希薄化20%以内想定</td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>ラウンド設計案</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>株式 / SAFE / 転換社債などを協議</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>資金使途</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>R&D, 製造, 営業, 認証, 人件, 運転等に配分</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>JV出資比率</td>
+            <td>50 : 50</td>
+            <td><span class="status-badge status-provisional">暫定</span></td>
+            <td></td>
+            <td>2026/02</td>
+          </tr>
+          <tr>
+            <td>JV解消条項等</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>Deadlock時の買取権、IPのライセンス範囲等</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>各種認証取得</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>UL等、FDA等の必要性・時期</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>市場規模・成長率</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>過去PPT由来の数字は破棄し最新データを取得必要</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>売上・利益計画</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>過去PPT由来の数字は破棄し最新データを取得必要</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>製造戦略・自社工場</td>
+            <td>-</td>
+            <td><span class="status-badge status-tbd">要確認</span></td>
+            <td>過去PPTでは2年目自社工場(10億)想定等が存在した</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Assumption Guide -->
+      <div class="detail-section">
+        <h4>前提台帳（ASSUMPTIONS_MASTER.csv）の読み方</h4>
+        <p style="font-size:0.85rem; color:var(--muted); line-height:1.6;">
+          本ピッチで使用している数値は、プロジェクトルートの <code>03_data/assumptions/ASSUMPTIONS_MASTER.csv</code> にて一元管理されています。
+          <br><br>
+          1. <strong>IDの照合</strong>: 各数値には固有のID（A001等）が割り振られています。<br>
+          2. <strong>出典の確認</strong>: <code>SourceRef</code> カラムを参照することで、その数値がどの資料、あるいはどの合意に基づくものかを確認できます。<br>
+          3. <strong>鮮度のチェック</strong>: <code>LastUpdated</code> により、その数値がいつ時点のものかを確認できます。
+        </p>
+      </div>
+
+      <!-- DD Source Tracker Section -->
+      <div class="detail-section">
+        <h4>数値の出典追跡 (Due Diligence Source Tracker)</h4>
+        <p style="font-size:0.85rem; color:var(--muted); line-height:1.6; margin-bottom:1rem;">
+          投資家DD時には、以下の手順で数値の根拠を提示します。すべての数値はプロジェクトルートの <code>03_data/assumptions/ASSUMPTIONS_MASTER.csv</code>
+          にID管理されています。
+        </p>
+        <div style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:8px; font-size:0.8rem;">
+          <ul style="list-style:none; padding:0;">
+            <li style="margin-bottom:0.5rem;"><strong>1. IDの照合:</strong> 台帳から該当する <code>id</code> (例: A001) を特定。</li>
+            <li style="margin-bottom:0.5rem;"><strong>2. 出典資料の提示:</strong> <code>source_file</code> と
+              <code>source_page</code> を提示。
+            </li>
+            <li style="margin-bottom:0.5rem;"><strong>3. 計算根拠の説明:</strong> <code>calc_method</code> に基づき、変数の妥当性を説明。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reference Gallery Modal -->
+  <div class="modal-overlay" id="modal-gallery" onclick="closeModalOnBgClick(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-gallery')">&times;</button>
+      <h2 style="margin-bottom: 0;">🖼️ 参考スライド資料</h2>
+      <p style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; color: #F59E0B;">
+        ※注記: これらは過去資料(PPT)をPNG化した参考図です。<br>
+        <strong>数値・計画の根拠としては使用せず、ストーリーと図解の補助としてのみ使用します。</strong>
+      </p>
+
+      <!-- JS will populate thumbnails here -->
+      <div class="gallery-grid" id="gallery-container">
+        <!-- Generated via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Script Modal -->
+  <div class="modal-overlay" id="modal-scripts-master" onclick="closeModalOnBgClick(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-scripts-master')">&times;</button>
+      <h2 style="margin-bottom: 0;">🎙️ 全体トーク台本 (用途別)</h2>
+      <p style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom:1rem;">
+        ※数字等の根拠は「✅ 最新版前提」モーダルを、図解補助は「🖼️ 参考スライド」モーダルをご活用ください。
+      </p>
+
+      <div class="detail-section">
+        <h4>【A】 90秒版（N氏が第三者に口頭で紹介する用・エレベーターピッチ）</h4>
+        <p style="color:#fff; line-height:1.8;">
+          「今、非常に面白いプロジェクトが動いてるんです。<strong>『センシングのMUI』と『空間改善のWCA』が組んで、世界の空気データインフラ企業を作る</strong>話です。<br><br>
+          最初は、命や健康に直結するドメインに特化して改善機器とセンサーを売ります。彼らの強みは、初期の物販で終わらず『空間の監視SaaS』と『ESG等のデータライセンス』の三段ロケットで収益化する点です。<br><br>
+          今後、海外スケールのために資金を調達し、将来的なIPOを狙っています。一度、具体的に話を聞いてみませんか？」
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h4>【B】 5分版（初回面談の骨子）</h4>
+        <ul style="color:#fff; line-height:1.7; padding-left:1.5rem;">
+          <li><strong>① 課題:</strong> 目に見えない「空気の質」は、特定業界では訴訟や身体的影響に関わるリスクです。</li>
+          <li><strong>② 解決:</strong> これを「測る」MUIと「変える」WCAのジョイントによって解決・証明します。</li>
+          <li><strong>③ 三段ロケット構造:</strong> ハード売り切りではなく、監視SaaSの継続課金と、ゆくゆくは空間データのライセンス事業化ができるからです。</li>
+          <li><strong>④ 調達とゴール:</strong> 将来のスケールに全振りします。IPOを見据えた成長ロードマップを持っています。詳細な数字設計は現在協議中の「最新版前提」をご覧いただきたいです。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox for viewing images -->
+  <div id="lightbox">
+    <button id="lightbox-close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    // Theme Toggle
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('theme-toggle');
+      if (body.classList.contains('medical-theme')) {
+        body.classList.remove('medical-theme');
+        btn.innerText = "🏥 Medical White";
+      } else {
+        body.classList.add('medical-theme');
+        btn.innerText = "🌙 Dark Mode";
+      }
+    }
+
+    // OS Safety Guards
+    function runSafetyGuards() {
+      console.log("Fundraising OS v1.0: Running safety guards...");
+
+      // 1. CSV Sync Check (Simulated)
+      const lastCsvSync = new Date("2026-02-25");
+      const today = new Date();
+      const diffTime = Math.abs(today - lastCsvSync);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      if (diffDays > 7) {
+        document.getElementById('sync-warning').style.display = 'block';
+      }
+
+      // 2. Placeholder Print Guard
+      window.onbeforeprint = function () {
+        const placeholders = document.querySelectorAll('.status-alert-placeholder');
+        if (placeholders.length > 0) {
+          const proceed = confirm("⚠️ 未承認または仮置きの数値(Placeholder)が含まれています。このまま印刷して投資家に配布しますか？");
+          if (!proceed) {
+            // Technically hard to cancel print in some browsers once triggered via button, 
+            // but we can warn or modify the DOM to hide items.
+            document.body.style.display = 'none';
+            setTimeout(() => { document.body.style.display = 'block'; }, 100);
+          }
+        }
+      };
+    }
+
+    // Modal Logic
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBgClick(e) {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") {
+        const modals = document.querySelectorAll('.modal-overlay.active, #lightbox.active');
+        modals.forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Print Mode logic (Expand all details)
+    window.addEventListener('beforeprint', () => {
+      document.querySelectorAll('details.speaker-note').forEach(detail => {
+        detail.setAttribute('open', '');
+      });
+    });
+
+    // Gallery Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryContainer = document.getElementById("gallery-container");
+      const totalSlides = 29;
+      /* 
+        画像が存在しない場合でもaltなどが表示されるように生成します。
+        実際のパスは「./資料データ/スライドX.png」等に合わせて変更しやすいように変数化しています。
+      */
+      const imageBasePath = "../02_sources/slides_png/スライド";
+
+      for (let i = 1; i <= totalSlides; i++) {
+        const div = document.createElement("div");
+        div.className = "gallery-item";
+        div.setAttribute("data-slide", `Slide ${i}`);
+
+        const imgPath = `${imageBasePath}${i}.png`;
+
+        // We handle fallback gracefully if the image breaks, but for UI sake we create it
+        // Note: If you want to handle errors to show a placeholder, you can add an onerror handler.
+        div.innerHTML = `<img src="${imgPath}" alt="スライド ${i}" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'300\\'><rect fill=\\'#111\\' width=\\'400\\' height=\\'300\\'/><text fill=\\'#ccc\\' x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\'>NO IMAGE ${i}</text></svg>'">`;
+
+        div.addEventListener("click", () => {
+          openLightbox(imgPath);
+        });
+        galleryContainer.appendChild(div);
+      }
+
+      // Lightbox handlers
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      function openLightbox(src) {
+        // Use the same fallback strategy in lightbox if needed
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+      }
+
+      lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+        }
+      });
+
+      // Sub-routine to ensure the lightbox img doesn't stay broken visually
+      lightboxImg.onerror = function () {
+        this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect fill="#111" width="800" height="600"/><text fill="#ccc" font-size="24" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Image Not Found</text></svg>';
+      };
+    });
+
+  </script>
+
+</body>
+
+</html>

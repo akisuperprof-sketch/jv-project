@@ -1,0 +1,129 @@
+/* Partner Section & Modern UI Kit for Pitch Deck v1.4.0 */
+
+:root {
+    --med-blue-pale: #F0F9FF;
+    --med-blue-light: #E0F2FE;
+    --med-blue-main: #0EA5E9;
+    --med-blue-dark: #0369A1;
+    --med-success: #10B981;
+    --med-slate-700: #334155;
+    --med-slate-900: #0F172A;
+}
+
+/* Partner Company Cards */
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.partner-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--med-blue-main);
+    background: #fff;
+}
+
+.partner-logo-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: var(--med-blue-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--med-blue-main);
+}
+
+.partner-link {
+    font-size: 0.85rem;
+    color: var(--med-blue-main);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.partner-link:hover {
+    text-decoration: underline;
+}
+
+/* Synergy / Why This JV */
+.synergy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.synergy-card {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.synergy-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--med-blue-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Partner Logo Grid */
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 3rem;
+    background: var(--glass);
+    border-radius: var(--radius);
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.logo-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(1);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.logo-item:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.logo-item img {
+    max-height: 100%;
+}
+
+@media (max-width: 768px) {
+    .synergy-grid {
+        grid-template-columns: 1fr;
+    }
+}
