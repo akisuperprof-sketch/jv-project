@@ -611,10 +611,10 @@
           <div style="text-align: center; margin-bottom: 1.5rem;">
             <div class="avatar-skeleton"
               style="margin: 0 auto 1rem auto; box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2); border: 4px solid #fff;">
-              <img src="./assets/img/Dr.Sascha A Jovanovic.png" alt="Sascha"
+              <img src="./assets/img/Dr.Sascha A Jovanovic.png" alt="Dr. Sascha"
                 onerror="this.onerror=null; setTimeout(() => this.parentElement.style.animation = 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite', 100); this.style.display='none';">
             </div>
-            <h4 style="margin: 0; font-size: 1.15rem; color: var(--secondary); font-weight: 900;">Sascha（サーシャ）</h4>
+            <h4 style="margin: 0; font-size: 1.15rem; color: var(--secondary); font-weight: 900;">Dr.Sascha（サーシャ）</h4>
             <p
               style="margin: 0; font-size: 0.8rem; color: var(--primary); font-weight: 800; text-transform: uppercase;">
               gIDE オーソリティ</p>
@@ -631,7 +631,7 @@
           style="opacity: 0.7; pointer-events: none;">参照先未定（TBD）</a>
       </div>
 
-      <!-- Wu x ADA Route -->
+      <!-- Dr. WU x ADA Route -->
       <div class="bento col-4"
         style="background: #fff; border: 2px solid var(--primary); justify-content: space-between;">
         <div class="tag primary" style="position:absolute; top: 1rem; right: 1rem;">10x Synergy</div>
@@ -639,10 +639,10 @@
           <div style="text-align: center; margin-bottom: 1.5rem;">
             <div class="avatar-skeleton"
               style="margin: 0 auto 1rem auto; box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2); border: 4px solid #fff;">
-              <img src="./assets/img/ウー.jpg" alt="Mr. Wu"
+              <img src="./assets/img/Dr.WU.png" alt="Dr. WU"
                 onerror="this.onerror=null; setTimeout(() => this.parentElement.style.animation = 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite', 100); this.style.display='none';">
             </div>
-            <h4 style="margin: 0; font-size: 1.15rem; color: var(--secondary); font-weight: 900;">Mr. Wu（ウー氏）</h4>
+            <h4 style="margin: 0; font-size: 1.15rem; color: var(--secondary); font-weight: 900;">Dr. WU（ウー氏）</h4>
             <p
               style="margin: 0; font-size: 0.8rem; color: var(--primary); font-weight: 800; text-transform: uppercase;">
               ADA ネットワーク</p>
@@ -1016,31 +1016,37 @@
     </div>
 
 
-        
+
     <!-- 5 Year P&L Toggle Button (v2.1.0 SSOT) -->
     <div style="text-align: center; margin-bottom: 3rem;">
-      <button onclick="var s = document.getElementById('pl-section'); s.style.display = s.style.display === 'none' ? 'block' : 'none';" 
-              style="padding: 1.2rem 3rem; background: var(--secondary); color: #fff; border: 2px solid var(--primary); border-radius: 16px; font-weight: 900; cursor: pointer; font-size: 1.1rem; box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2); transition: all 0.3s ease; letter-spacing: 0.05em;"
-              onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 20px 40px rgba(2, 132, 199, 0.3)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 30px rgba(2, 132, 199, 0.2)';"
-              id="pl-toggle-btn">
+      <button
+        onclick="var s = document.getElementById('pl-section'); s.style.display = s.style.display === 'none' ? 'block' : 'none';"
+        style="padding: 1.2rem 3rem; background: var(--secondary); color: #fff; border: 2px solid var(--primary); border-radius: 16px; font-weight: 900; cursor: pointer; font-size: 1.1rem; box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2); transition: all 0.3s ease; letter-spacing: 0.05em;"
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 20px 40px rgba(2, 132, 199, 0.3)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 30px rgba(2, 132, 199, 0.2)';"
+        id="pl-toggle-btn">
         📊 5ヶ年 統合事業 損益計画 (P&L: 2026-2030) を表示
       </button>
-      <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--muted); font-weight: 700;">SSOT Verified: Model_vAxiom_2026-02-26</div>
+      <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--muted); font-weight: 700;">SSOT Verified:
+        Model_vAxiom_2026-02-26</div>
     </div>
 
-    
-    <div id="pl-section" class="bento col-12" style="display: none; background: #fff; padding: 3.5rem; border-top: 4px solid var(--primary); margin-bottom: 4rem;">
+
+    <div id="pl-section" class="bento col-12"
+      style="display: none; background: #fff; padding: 3.5rem; border-top: 4px solid var(--primary); margin-bottom: 4rem;">
       <div class="tag dark" style="margin-bottom: 0.5rem;">Financial Projection / SSOT: Model_vAxiom_2026-02-26</div>
       <h3 style="margin-bottom: 1.5rem; color: var(--secondary); font-size: 1.6rem;">統合事業 5ヶ年 損益計画 (P&L)</h3>
       <p style="font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.6;">
         装置で入り (Device)、計測で広げ (Sensing)、データで勝つ (Data) 三層収益モデルに基づく統合試算です。<br>
         データ事業（Phase C）へのシフトに伴い、限界利益率が劇的に向上する構造を可視化しています。
-        <span style="display:block; text-align:right; font-weight:700; color:var(--primary); margin-top: 0.5rem;">（※単位：百万円）</span>
+        <span
+          style="display:block; text-align:right; font-weight:700; color:var(--primary); margin-top: 0.5rem;">（※単位：百万円）</span>
       </p>
 
       <!-- Revenue Breakdown Table -->
-      <h4 style="font-size:1.1rem; color:var(--secondary); margin-bottom:1.2rem; padding-left:0.75rem; border-left:4px solid var(--primary); font-weight:900;">三層売上モデル内訳 (Revenue Layers)</h4>
+      <h4
+        style="font-size:1.1rem; color:var(--secondary); margin-bottom:1.2rem; padding-left:0.75rem; border-left:4px solid var(--primary); font-weight:900;">
+        三層売上モデル内訳 (Revenue Layers)</h4>
       <div style="overflow-x: auto; margin-bottom: 3.5rem;">
         <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.95rem;">
           <thead>
@@ -1054,52 +1060,59 @@
           </thead>
           <tbody>
 
-            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;" onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
+            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;"
+              onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
               <td style="padding: 1rem; text-align: left; font-weight:700; color:var(--secondary);">2026.8</td>
               <td style="padding: 1rem;">320</td>
               <td style="padding: 1rem;">60</td>
               <td style="padding: 1rem;">20</td>
               <td style="padding: 1rem; font-weight:900; color:var(--primary);">400</td>
             </tr>
-    
-            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;" onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
+
+            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;"
+              onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
               <td style="padding: 1rem; text-align: left; font-weight:700; color:var(--secondary);">2027.8</td>
               <td style="padding: 1rem;">560</td>
               <td style="padding: 1rem;">180</td>
               <td style="padding: 1rem;">70</td>
               <td style="padding: 1rem; font-weight:900; color:var(--primary);">810</td>
             </tr>
-    
-            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;" onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
+
+            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;"
+              onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
               <td style="padding: 1rem; text-align: left; font-weight:700; color:var(--secondary);">2028.8</td>
               <td style="padding: 1rem;">1,250</td>
               <td style="padding: 1rem;">650</td>
               <td style="padding: 1rem;">520</td>
               <td style="padding: 1rem; font-weight:900; color:var(--primary);">2,420</td>
             </tr>
-    
-            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;" onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
+
+            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;"
+              onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
               <td style="padding: 1rem; text-align: left; font-weight:700; color:var(--secondary);">2029.8</td>
               <td style="padding: 1rem;">2,850</td>
               <td style="padding: 1rem;">1,700</td>
               <td style="padding: 1rem;">1,500</td>
               <td style="padding: 1rem; font-weight:900; color:var(--primary);">6,050</td>
             </tr>
-    
-            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;" onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
+
+            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.2s;"
+              onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">
               <td style="padding: 1rem; text-align: left; font-weight:700; color:var(--secondary);">2030.8</td>
               <td style="padding: 1rem;">4,600</td>
               <td style="padding: 1rem;">3,200</td>
               <td style="padding: 1rem;">4,300</td>
               <td style="padding: 1rem; font-weight:900; color:var(--primary);">12,100</td>
             </tr>
-    
+
           </tbody>
         </table>
       </div>
 
       <!-- Main P&L Table -->
-      <h4 style="font-size:1.1rem; color:var(--secondary); margin-bottom:1.2rem; padding-left:0.75rem; border-left:4px solid var(--success); font-weight:900;">統合損益計算書 (Consolidated P&L)</h4>
+      <h4
+        style="font-size:1.1rem; color:var(--secondary); margin-bottom:1.2rem; padding-left:0.75rem; border-left:4px solid var(--success); font-weight:900;">
+        統合損益計算書 (Consolidated P&L)</h4>
       <div style="overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 1rem;">
           <thead>
@@ -1115,67 +1128,131 @@
           <tbody>
             <tr style="border-bottom: 1px solid #E2E8F0; font-weight:800; background: #F8FAFC;">
               <td style="padding: 1.2rem 1.5rem; text-align: left; color: var(--secondary);">売上高合計 (Gross Revenue)</td>
-<td style="padding: 1.2rem;">400</td><td style="padding: 1.2rem;">810</td><td style="padding: 1.2rem;">2,420</td><td style="padding: 1.2rem;">6,050</td><td style="padding: 1.2rem;">12,100</td></tr>
+              <td style="padding: 1.2rem;">400</td>
+              <td style="padding: 1.2rem;">810</td>
+              <td style="padding: 1.2rem;">2,420</td>
+              <td style="padding: 1.2rem;">6,050</td>
+              <td style="padding: 1.2rem;">12,100</td>
+            </tr>
             <tr style="border-bottom: 2px solid #CBD5E1; background: #ECFDF5;">
-              <td style="padding: 1.2rem 1.5rem; text-align: left; font-weight: 900; color: var(--success);">売上総利益 (Gross Profit)</td>
-<td style="padding: 1.2rem; font-weight:900; color:var(--success);">233</td><td style="padding: 1.2rem; font-weight:900; color:var(--success);">488</td><td style="padding: 1.2rem; font-weight:900; color:var(--success);">1,578</td><td style="padding: 1.2rem; font-weight:900; color:var(--success);">4,022</td><td style="padding: 1.2rem; font-weight:900; color:var(--success);">8,480</td></tr>
+              <td style="padding: 1.2rem 1.5rem; text-align: left; font-weight: 900; color: var(--success);">売上総利益
+                (Gross Profit)</td>
+              <td style="padding: 1.2rem; font-weight:900; color:var(--success);">233</td>
+              <td style="padding: 1.2rem; font-weight:900; color:var(--success);">488</td>
+              <td style="padding: 1.2rem; font-weight:900; color:var(--success);">1,578</td>
+              <td style="padding: 1.2rem; font-weight:900; color:var(--success);">4,022</td>
+              <td style="padding: 1.2rem; font-weight:900; color:var(--success);">8,480</td>
+            </tr>
             <tr style="border-bottom: 1px solid #E2E8F0;">
-              <td style="padding: 1.2rem 1.5rem; text-align: left; font-weight: 800; color: var(--secondary);">販管費合計 (SG&A)</td>
-<td style="padding: 1.2rem;">190</td><td style="padding: 1.2rem;">360</td><td style="padding: 1.2rem;">900</td><td style="padding: 1.2rem;">2,160</td><td style="padding: 1.2rem;">4,350</td></tr>
+              <td style="padding: 1.2rem 1.5rem; text-align: left; font-weight: 800; color: var(--secondary);">販管費合計
+                (SG&A)</td>
+              <td style="padding: 1.2rem;">190</td>
+              <td style="padding: 1.2rem;">360</td>
+              <td style="padding: 1.2rem;">900</td>
+              <td style="padding: 1.2rem;">2,160</td>
+              <td style="padding: 1.2rem;">4,350</td>
+            </tr>
             <tr style="font-size: 0.85rem; color: var(--muted);">
               <td style="padding: 0.6rem 1.5rem; text-align: left; padding-left: 3.5rem;">－ 人件費</td>
-<td style="padding: 0.6rem 1.2rem;">60</td><td style="padding: 0.6rem 1.2rem;">75</td><td style="padding: 0.6rem 1.2rem;">95</td><td style="padding: 0.6rem 1.2rem;">120</td><td style="padding: 0.6rem 1.2rem;">150</td></tr>
+              <td style="padding: 0.6rem 1.2rem;">60</td>
+              <td style="padding: 0.6rem 1.2rem;">75</td>
+              <td style="padding: 0.6rem 1.2rem;">95</td>
+              <td style="padding: 0.6rem 1.2rem;">120</td>
+              <td style="padding: 0.6rem 1.2rem;">150</td>
+            </tr>
             <tr style="font-size: 0.85rem; color: var(--muted);">
               <td style="padding: 0.6rem 1.5rem; text-align: left; padding-left: 3.5rem;">－ マーケティング / 営推費</td>
-<td style="padding: 0.6rem 1.2rem;">10</td><td style="padding: 0.6rem 1.2rem;">20</td><td style="padding: 0.6rem 1.2rem;">45</td><td style="padding: 0.6rem 1.2rem;">90</td><td style="padding: 0.6rem 1.2rem;">160</td></tr>
+              <td style="padding: 0.6rem 1.2rem;">10</td>
+              <td style="padding: 0.6rem 1.2rem;">20</td>
+              <td style="padding: 0.6rem 1.2rem;">45</td>
+              <td style="padding: 0.6rem 1.2rem;">90</td>
+              <td style="padding: 0.6rem 1.2rem;">160</td>
+            </tr>
             <tr style="font-size: 0.85rem; color: var(--muted);">
               <td style="padding: 0.6rem 1.5rem; text-align: left; padding-left: 3.5rem;">－ 研究開発費 (Phase B/C)</td>
-<td style="padding: 0.6rem 1.2rem;">30</td><td style="padding: 0.6rem 1.2rem;">70</td><td style="padding: 0.6rem 1.2rem;">160</td><td style="padding: 0.6rem 1.2rem;">350</td><td style="padding: 0.6rem 1.2rem;">700</td></tr>
+              <td style="padding: 0.6rem 1.2rem;">30</td>
+              <td style="padding: 0.6rem 1.2rem;">70</td>
+              <td style="padding: 0.6rem 1.2rem;">160</td>
+              <td style="padding: 0.6rem 1.2rem;">350</td>
+              <td style="padding: 0.6rem 1.2rem;">700</td>
+            </tr>
             <tr style="font-size: 0.85rem; color: var(--muted); border-bottom: 1px solid #E2E8F0;">
               <td style="padding: 0.6rem 1.5rem; text-align: left; padding-left: 3.5rem;">－ 販路・代理店手数料 / 他</td>
-<td style="padding: 0.6rem 1.2rem;">90</td><td style="padding: 0.6rem 1.2rem;">195</td><td style="padding: 0.6rem 1.2rem;">600</td><td style="padding: 0.6rem 1.2rem;">1,600</td><td style="padding: 0.6rem 1.2rem;">3,340</td></tr>
+              <td style="padding: 0.6rem 1.2rem;">90</td>
+              <td style="padding: 0.6rem 1.2rem;">195</td>
+              <td style="padding: 0.6rem 1.2rem;">600</td>
+              <td style="padding: 0.6rem 1.2rem;">1,600</td>
+              <td style="padding: 0.6rem 1.2rem;">3,340</td>
+            </tr>
             <tr style="background: rgba(2, 132, 199, 0.12); border-top: 2px solid var(--primary);">
-              <td style="padding: 1.5rem 1.5rem; text-align: left; font-weight: 900; color: var(--primary); font-size: 1.3rem;">営業利益 (EBIT)</td>
-<td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">43</td><td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">128</td><td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">678</td><td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">1,862</td><td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">4,130</td></tr>
-            <tr style="background: rgba(2, 132, 199, 0.05); color: var(--primary); font-weight: 800; font-size: 0.95rem;">
+              <td
+                style="padding: 1.5rem 1.5rem; text-align: left; font-weight: 900; color: var(--primary); font-size: 1.3rem;">
+                営業利益 (EBIT)</td>
+              <td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">43</td>
+              <td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">128</td>
+              <td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">678</td>
+              <td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">1,862</td>
+              <td style="padding: 1.5rem 1.2rem; font-weight: 900; color: var(--primary); font-size: 1.3rem;">4,130</td>
+            </tr>
+            <tr
+              style="background: rgba(2, 132, 199, 0.05); color: var(--primary); font-weight: 800; font-size: 0.95rem;">
               <td style="padding: 0.8rem 1.5rem; text-align: left;">営業利益率 (EBIT Margin %)</td>
-<td style="padding: 0.8rem 1.2rem;">10.8%</td><td style="padding: 0.8rem 1.2rem;">15.8%</td><td style="padding: 0.8rem 1.2rem;">28.0%</td><td style="padding: 0.8rem 1.2rem;">30.8%</td><td style="padding: 0.8rem 1.2rem;">34.1%</td></tr>
+              <td style="padding: 0.8rem 1.2rem;">10.8%</td>
+              <td style="padding: 0.8rem 1.2rem;">15.8%</td>
+              <td style="padding: 0.8rem 1.2rem;">28.0%</td>
+              <td style="padding: 0.8rem 1.2rem;">30.8%</td>
+              <td style="padding: 0.8rem 1.2rem;">34.1%</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <!-- Layer Margin Insights -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3.5rem;">
-        <div style="background: #F8FAFC; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700;">Device 粗利率 (GM%)</div>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3.5rem;">
+        <div
+          style="background: #F8FAFC; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700;">Device 粗利率
+            (GM%)</div>
           <div style="font-size: 1.5rem; font-weight: 900; color: var(--secondary);">55%</div>
         </div>
-        <div style="background: #F8FAFC; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700;">Sensing 粗利率 (GM%)</div>
+        <div
+          style="background: #F8FAFC; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700;">Sensing 粗利率
+            (GM%)</div>
           <div style="font-size: 1.5rem; font-weight: 900; color: var(--secondary);">65%</div>
         </div>
-        <div style="background: #F8FAFC; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700;">Data 粗利率 (GM%)</div>
+        <div
+          style="background: #F8FAFC; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 700;">Data 粗利率 (GM%)
+          </div>
           <div style="font-size: 1.5rem; font-weight: 900; color: var(--secondary);">90%</div>
         </div>
-        <div style="background: #ECFDF5; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--success); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <div style="font-size: 0.85rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 800;">全社 粗利率 (2030目標)</div>
+        <div
+          style="background: #ECFDF5; padding: 1.8rem; border-radius: 16px; border-top: 4px solid var(--success); box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <div style="font-size: 0.85rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 800;">全社 粗利率
+            (2030目標)</div>
           <div style="font-size: 1.5rem; font-weight: 900; color: var(--success);">約 60.1%</div>
         </div>
       </div>
 
-      <div style="margin-top: 3rem; padding: 2rem; background: #FFFBEB; border-radius: 16px; border-left: 6px solid var(--warning);">
-        <h4 style="margin-bottom: 1rem; color: var(--secondary); font-size: 1.1rem; font-weight: 900;">収益構造の特異性とスケーラビリティの源泉</h4>
+      <div
+        style="margin-top: 3rem; padding: 2rem; background: #FFFBEB; border-radius: 16px; border-left: 6px solid var(--warning);">
+        <h4 style="margin-bottom: 1rem; color: var(--secondary); font-size: 1.1rem; font-weight: 900;">
+          収益構造の特異性とスケーラビリティの源泉</h4>
         <ul style="font-size: 0.95rem; color: var(--muted); line-height: 1.8; padding-left: 1.5rem; margin: 0;">
-          <li><strong style="color:var(--text)">利益率の非連続な向上：</strong> 初期はDevice売上が大半を占めるが、Sensing・Dataの比率が高まる2028年以降、全社粗利率は非連続的に向上。これが高マルチプル評価の根拠となる。</li>
-          <li><strong style="color:var(--text)">戦略的R&D投下：</strong> 販管費内のR&D投資(年間1.6億〜7億円)は一貫してPhase B/C（計測プロトコルとデータライセンスAPI）に集中投下し、長期的参入障壁(Moat)を構築する。</li>
-          <li><strong style="color:var(--text)">高い資本効率：</strong> 2028年を分岐点とし、DeviceによるキャッシュフローでSaaS/Data開発を自己資金で賄いつつ、営業利益率30%超を目指す高収益体質へと移行する。</li>
+          <li><strong style="color:var(--text)">利益率の非連続な向上：</strong>
+            初期はDevice売上が大半を占めるが、Sensing・Dataの比率が高まる2028年以降、全社粗利率は非連続的に向上。これが高マルチプル評価の根拠となる。</li>
+          <li><strong style="color:var(--text)">戦略的R&D投下：</strong> 販管費内のR&D投資(年間1.6億〜7億円)は一貫してPhase
+            B/C（計測プロトコルとデータライセンスAPI）に集中投下し、長期的参入障壁(Moat)を構築する。</li>
+          <li><strong style="color:var(--text)">高い資本効率：</strong>
+            2028年を分岐点とし、DeviceによるキャッシュフローでSaaS/Data開発を自己資金で賄いつつ、営業利益率30%超を目指す高収益体質へと移行する。</li>
         </ul>
       </div>
     </div>
 
 
-    
+
     <!-- 7. ONE-PAGE INVESTOR SUMMARY -->
     <h2>投資家向け要約（One-Page Summary）</h2>
     <div class="bento-grid">
